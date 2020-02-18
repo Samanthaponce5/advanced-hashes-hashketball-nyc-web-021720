@@ -1,3 +1,5 @@
+require 'pry'
+
 def game_hash
   games_hash = {
     home:{
@@ -191,7 +193,7 @@ end
 
 def big_shoe_rebounds
   big_shoe = 0 
-  rebounds = "" 
+  rebounds = 0
   game_hash.each do |key, value|
     value[:players].each do |stats|
    if stats[:shoe] > big_shoe
@@ -205,16 +207,17 @@ def big_shoe_rebounds
 
 def most_points_scored 
   most = 0 
-  name_p = 0
+  name = 0
   game_hash.each do |key, value|
+    binding.pry
     value[:players].each do |stats|
       if stats[:points] > most 
         most = stats[:points]
-        name_p = stats[:player_name]
+        name = stats[:player_name]
       end
     end
   end
- name_p
+ name
 end
 
 def winning_team
